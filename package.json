@@ -1,13 +1,14 @@
 {
-  "name": "react-express-starter",
-  "version": "0.0.1",
-  "description": "React + Express starter template",
+  "name": "gpresources",
+  "version": "1.0.0",
+  "description": "Gracepoint Resources",
   "main": "src/App.js",
-  "homepage": "https://github.com/bharani91/react-express-starter",
+  "homepage": "https://github.com/junghlee90/gpresources",
   "author": "James Lee",
+  "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bharani91/react-express-starter"
+    "url": "https://github.com/junghlee90/gpresources"
   },
   "keywords": [
     "react",
@@ -78,9 +79,11 @@
     "material-ui": "0.18.1",
     "react": "15.5.4",
     "react-dom": "15.5.4",
-    "react-router": "^2.0.0",
+    "react-router": "3.0.4",
     "react-bootstrap": "^0.28.3",
     "react-tap-event-plugin": "2.0.1",
+    "react-redux": "5.0.5",
+    "redux": "3.6.0",
     "resolve-url-loader": "^1.4.3",
     "rimraf": "^2.5.2",
     "sass-loader": "^3.2.0",

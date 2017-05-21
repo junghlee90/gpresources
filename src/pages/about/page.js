@@ -1,16 +1,16 @@
-import React from "react";
-import styles from "./style.css";
-import { Link } from "react-router";
-import { ButtonToolbar, Button } from 'react-bootstrap';
+import React, { Component } from 'react'
+import styles from './style.css'
+import { Link } from 'react-router'
 
-
-export default React.createClass({
-  render() {
+class About extends Component {
+  render () {
     return (
       <div className={styles.content}>
-        <h1 className="page-title">About Page</h1>
-        <Link to="/" className="btn">Home Page &rarr;</Link>
+        <h1 className='page-title'>About Page</h1>
+        <Link to='/about' className='btn'>About page &rarr;</Link>
       </div>
-    );
+    )
   }
-})
+}
+
+export default About

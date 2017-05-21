@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const MainLayout = React.createClass({
-  render: function () {
+class MainLayout extends Component {
+  render () {
     return (
       <div>
         <div className='container-fluid'>
@@ -12,6 +12,6 @@ const MainLayout = React.createClass({
       </div>
     )
   }
-})
+}
 
 export default MainLayout

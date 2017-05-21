@@ -1,15 +1,15 @@
-var path = require('path');
-var webpack = require('webpack');
-var config = require('./webpack.config.development.js');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var _ = require('lodash');
-var embedFileSize = 50000;
+var path = require('path')
+var webpack = require('webpack')
+var config = require('./webpack.config.development.js')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var _ = require('lodash')
+var embedFileSize = 50000
 
 module.exports = _.extend({}, config, {
   entry: [
     'bootstrap-loader/extractStyles',
-    path.join(__dirname, 'src/main.js')
+    path.join(__dirname, 'src/App.js')
   ],
   output: {
     path: path.join(__dirname, '/dist/'),

@@ -1,14 +1,14 @@
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var embedFileSize = 50000;
+var path = require('path')
+var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var embedFileSize = 50000
 
 module.exports = {
   devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client',
     'bootstrap-loader',
-    path.join(__dirname, 'src/main.js')
+    path.join(__dirname, 'src/App.js')
   ],
   output: {
     path: path.join(__dirname, '/dist/'),

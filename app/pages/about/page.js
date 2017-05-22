@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styles from './style.css'
 import { Link } from 'react-router'
-import { _fetch, apiUrl } from '../../lib/utils'
 
 class About extends Component {
   render () {

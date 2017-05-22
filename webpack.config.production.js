@@ -78,5 +78,5 @@ module.exports = _.extend({}, config, {
         loader: 'url?limit=' + embedFileSize
       }
     ]
-  },
-});
+  }
+})

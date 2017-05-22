@@ -10,12 +10,6 @@
     "type": "git",
     "url": "https://github.com/junghlee90/gpresources"
   },
-  "keywords": [
-    "react",
-    "express",
-    "postcss",
-    "starter template"
-  ],
   "scripts": {
     "start": "better-npm-run start",
     "build:start": "better-npm-run build:start",

@@ -7,7 +7,7 @@ var compiler = webpack(config)
 
 var middleware = require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath,
-  contentBase: 'src',
+  contentBase: 'app',
   stats: {
     colors: true,
     hash: false,

@@ -2,7 +2,7 @@
   "name": "gpresources",
   "version": "1.0.0",
   "description": "Gracepoint Resources",
-  "main": "src/App.js",
+  "main": "app/App.js",
   "homepage": "https://github.com/junghlee90/gpresources",
   "author": "James Lee",
   "license": "UNLICENSED",

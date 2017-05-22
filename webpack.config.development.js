@@ -8,7 +8,7 @@ module.exports = {
   entry: [
     'webpack-hot-middleware/client',
     'bootstrap-loader',
-    path.join(__dirname, 'src/App.js')
+    path.join(__dirname, 'app/App.js')
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
@@ -17,7 +17,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.tpl.html',
+      template: 'app/index.tpl.html',
       inject: 'body',
       filename: 'index.html'
     }),

@@ -4,6 +4,7 @@ var webpack = require('webpack')
 var config = require('./webpack.config.development')
 var app = express()
 var compiler = webpack(config)
+const serverRouter = require('./server')
 
 var middleware = require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath,
@@ -18,12 +19,7 @@ var middleware = require('webpack-dev-middleware')(compiler, {
   }
 })
 
-var router = express.Router()
-router.get('/', function (req, res) {
-  res.json({ message: 'horray welcome to our api!' })
-})
-
-app.use('/api', router)
+app.use('/api', serverRouter)
 
 app.use(middleware)
 app.use(require('webpack-hot-middleware')(compiler, {

@@ -1,17 +1,13 @@
 var path = require('path')
 var express = require('express')
 var app = express()
+const serverRouter = require('./server')
 
 app.set('port', (process.env.PORT || 8000))
 
 app.use(express.static(path.join(__dirname, '/dist')))
 
-var router = express.Router()
-router.get('/', function (req, res) {
-  res.json({ message: 'horray welcome to our api!' })
-})
-
-app.use('/api', router)
+app.use('/api', serverRouter)
 
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist/index.html'))

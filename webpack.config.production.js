@@ -9,7 +9,7 @@ var embedFileSize = 50000
 module.exports = _.extend({}, config, {
   entry: [
     'bootstrap-loader/extractStyles',
-    path.join(__dirname, 'app/App.js')
+    path.join(__dirname, 'ui/App.js')
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
@@ -18,7 +18,7 @@ module.exports = _.extend({}, config, {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new HtmlWebpackPlugin({
-      template: 'app/index.tpl.html',
+      template: 'ui/index.tpl.html',
       inject: 'body',
       filename: 'index.html',
       minify: {

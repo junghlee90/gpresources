@@ -7,8 +7,8 @@ router.get('/', (req, res) => {
   res.json({ message: 'horray welcome to our api!' })
 })
 
-router.post('/resources', (req, res) => {
-  models.Resource.create({
+router.post('/resource', (req, res) => {
+  models.resource.create({
     name: req.body.name
   }).then((resource) => {
     res.json(resource)
@@ -16,7 +16,7 @@ router.post('/resources', (req, res) => {
 })
 
 router.get('/resources', (req, res) => {
-  models.Resource.findAll({}).then((resources) => {
+  models.resource.findAll({}).then((resources) => {
     res.json(resources)
   })
 })

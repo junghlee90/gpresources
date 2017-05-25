@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Resource = sequelize.define('Resource', {
+  var resource = sequelize.define('resource', {
     name: DataTypes.STRING
   }, {
     classMethods: {
@@ -9,5 +9,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return Resource;
+  return resource;
 };

@@ -1,11 +1,15 @@
 var path = require('path')
 var express = require('express')
 var app = express()
-const serverRouter = require('./server')
+var bodyParser = require('body-parser')
+const serverRouter = require('./api/routes/index')
 
 app.set('port', (process.env.PORT || 8000))
 
 app.use(express.static(path.join(__dirname, '/dist')))
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/api', serverRouter)
 

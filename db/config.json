@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "jlee",
+    "database": "resources_development",
+    "host": "127.0.0.1",
+    "port": "5433",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "root",
+    "password": "root",
+    "database": "resources_test",
+    "host": "update me",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "root",
+    "password": "root",
+    "database": "resources",
+    "host": "update me",
+    "dialect": "postgres"
+  }
+}

@@ -4,7 +4,8 @@ var webpack = require('webpack')
 var config = require('./webpack.config.development')
 var app = express()
 var compiler = webpack(config)
-const serverRouter = require('./server')
+var bodyParser = require('body-parser')
+const serverRouter = require('./api/routes/index')
 
 var middleware = require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath,
@@ -18,6 +19,9 @@ var middleware = require('webpack-dev-middleware')(compiler, {
     modules: false
   }
 })
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/api', serverRouter)
 

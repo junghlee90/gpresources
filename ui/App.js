@@ -3,6 +3,8 @@ import 'babel-polyfill'
 import React from 'react'
 import Router from './Router'
 import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import store from './Store'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
@@ -12,7 +14,9 @@ injectTapEventPlugin()
 
 const App = () => (
   <MuiThemeProvider>
-    {Router}
+    <Provider store={store}>
+      {Router}
+    </Provider>
   </MuiThemeProvider>
 )
 

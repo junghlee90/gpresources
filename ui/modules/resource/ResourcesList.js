@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { getResources } from './ResourceActions'
 import {
   Table,
   TableBody,
@@ -9,6 +12,10 @@ import {
 } from 'material-ui/Table'
 
 class ResourcesList extends Component {
+  componentDidMount () {
+    this.props.getResources()
+  }
+
   renderHeaders () {
     const headers = [
       'Name', 'Count'
@@ -31,16 +38,16 @@ class ResourcesList extends Component {
   }
 
   renderRows () {
-    const stuff = [{name: 'stuff', count: 1}]
+    const { items } = this.props
 
     return (
       <TableBody>
         {
-          stuff.map((stuf) => {
+          items.map((item) => {
             return (
-              <TableRow key={stuf.name}> >
-                <TableRowColumn>{stuf.name}</TableRowColumn>
-                <TableRowColumn>{stuf.count}</TableRowColumn>
+              <TableRow key={item.id}> >
+                <TableRowColumn>{item.name}</TableRowColumn>
+                <TableRowColumn>{item.id}</TableRowColumn>
               </TableRow>
             )
           })
@@ -59,4 +66,17 @@ class ResourcesList extends Component {
   }
 }
 
-export default ResourcesList
+const mapStateToProps = (state) => {
+  const { items } = state.resources
+  return {
+    items
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getResources: bindActionCreators(getResources, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ResourcesList)

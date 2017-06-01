@@ -17,10 +17,11 @@ class MainLayout extends Component {
             <Menu>
               <MenuItem primaryText='Available' />
               <MenuItem primaryText='Checked Out' />
+              <MenuItem primaryText='Add New' />
             </Menu>
           </Paper>
         </div>
-        <div className='col-md-10'>
+        <div className='col-md-9' style={style}>
           {this.props.children}
         </div>
       </div>

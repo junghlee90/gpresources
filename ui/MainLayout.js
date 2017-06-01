@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Paper from 'material-ui/Paper'
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
+import { Link } from 'react-router'
 
 class MainLayout extends Component {
   render () {
@@ -15,9 +16,13 @@ class MainLayout extends Component {
         <div className='col-md-2'>
           <Paper style={style}>
             <Menu>
-              <MenuItem primaryText='Available' />
+              <MenuItem
+                containerElement={<Link to='/' />}
+                primaryText='Available' />
               <MenuItem primaryText='Checked Out' />
-              <MenuItem primaryText='Add New' />
+              <MenuItem
+                containerElement={<Link to='/add_new' />}
+                primaryText='Add New' />
             </Menu>
           </Paper>
         </div>

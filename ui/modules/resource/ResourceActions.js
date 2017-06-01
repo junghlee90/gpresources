@@ -28,7 +28,6 @@ export const addResource = () => {
       name: getState().resources.currentResourceName,
       count: getState().resources.currentResourceCount
     }
-    console.log(resource, 'resource', getState().resources)
 
     return createResource(resource)
       .then(resource => dispatch(addResourceSuccess(resource)))

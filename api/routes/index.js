@@ -8,11 +8,18 @@ router.get('/', (req, res) => {
 })
 
 router.post('/resource', (req, res) => {
-  models.resource.create({
-    name: req.body.name
-  }).then((resource) => {
-    res.json(resource)
-  })
+  models.resource.create(req.body)
+    .then((resource) => {
+      models.resource_state.create({
+        resource_id: resource.id,
+        count: req.body.count
+      })
+
+      return resource
+    })
+    .then((resource) => {
+      res.json(resource)
+    })
 })
 
 router.get('/resource', (req, res) => {

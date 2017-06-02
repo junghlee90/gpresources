@@ -44,12 +44,14 @@ class ResourcesList extends Component {
       <TableBody>
         {
           items.map((item) => {
-            return (
-              <TableRow key={item.id}> >
-                <TableRowColumn>{item.name}</TableRowColumn>
-                <TableRowColumn>{item.id}</TableRowColumn>
-              </TableRow>
-            )
+            return item.resource_states.map((state) => {
+              return (
+                <TableRow key={state.id}> >
+                  <TableRowColumn>{item.name}</TableRowColumn>
+                  <TableRowColumn>{state.count}</TableRowColumn>
+                </TableRow>
+              )
+            })
           })
         }
       </TableBody>

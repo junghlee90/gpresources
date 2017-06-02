@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 import {
   getResources,
   addResource,
@@ -70,8 +71,12 @@ const mapDispatchToProps = (dispatch) => {
     getResources: bindActionCreators(getResources, dispatch),
     resourceNameChanged: bindActionCreators(resourceNameChanged, dispatch),
     resourceCountChanged: bindActionCreators(resourceCountChanged, dispatch),
-    addResource: bindActionCreators(addResource, dispatch),
-    addResourceNew: bindActionCreators(addResourceNew, dispatch)
+    addResourceNew: bindActionCreators(addResourceNew, dispatch),
+    addResource: () => {
+      dispatch(addResource()).then(() => {
+        browserHistory.push('/')
+      })
+    }
   }
 }
 

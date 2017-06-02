@@ -4,20 +4,19 @@
     "database": "resources_development",
     "host": "127.0.0.1",
     "port": "5432",
-    "dialect": "postgres"
-  },
-  "test": {
-    "username": "root",
-    "password": "root",
-    "database": "resources_test",
-    "host": "update me",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "define": {
+      "underscored": "true"
+    }
   },
   "production": {
     "username": "nmiyeqqpicwebh",
     "password": "12167a9824e1244dfb85ffda546342dea4dca5687290339e5d34ed3a735e9b33",
     "database": "dfrru8giku0qmj",
     "host": "ec2-23-23-234-118.compute-1.amazonaws.com",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "define": {
+      "underscored": "true"
+    }
   }
 }

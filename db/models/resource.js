@@ -1,13 +1,13 @@
-'use strict';
-module.exports = function(sequelize, DataTypes) {
-  var resource = sequelize.define('resource', {
+'use strict'
+module.exports = function (sequelize, DataTypes) {
+  var Resource = sequelize.define('resource', {
     name: DataTypes.STRING
   }, {
     classMethods: {
-      associate: function(models) {
-        // associations can be defined here
+      associate: function (models) {
+        Resource.hasMany(models.resource_state)
       }
     }
-  });
-  return resource;
-};
+  })
+  return Resource
+}

@@ -16,7 +16,13 @@ router.post('/resource', (req, res) => {
 })
 
 router.get('/resource', (req, res) => {
-  models.resource.findAll({}).then((resources) => {
+  models.resource.findAll({
+    include: [
+      {
+        model: models.resource_state
+      }
+    ]
+  }).then((resources) => {
     res.json(resources)
   })
 })

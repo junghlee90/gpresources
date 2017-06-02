@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
+import TextField from 'material-ui/TextField'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getResources } from './ResourceActions'
+import CheckoutForm from '../checkout/CheckoutForm'
+import Dialog from 'material-ui/Dialog'
 import RaisedButton from 'material-ui/RaisedButton'
 import {
   Table,
@@ -19,7 +22,7 @@ class ResourcesList extends Component {
 
   renderHeaders () {
     const headers = [
-      'Name', 'Count'
+      'Name', 'Available Count', 'Checkout Count'
     ]
 
     return (
@@ -50,6 +53,10 @@ class ResourcesList extends Component {
                 <TableRow key={state.id}> >
                   <TableRowColumn>{item.name}</TableRowColumn>
                   <TableRowColumn>{state.count}</TableRowColumn>
+                  <TableRowColumn>
+                    <TextField
+                       />
+                  </TableRowColumn>
                 </TableRow>
               )
             })
@@ -62,13 +69,24 @@ class ResourcesList extends Component {
   render () {
     return (
       <div>
-        <Table>
+        <TextField
+          errorText='This field is required'
+          hintText='Name of person checking out the resources (i.e. John Lin)' />
+        <Table
+          multiSelectable
+          >
           {this.renderHeaders()}
           {this.renderRows()}
         </Table>
         <RaisedButton
           label='Check out'
           primary />
+        <Dialog
+          modal={false}
+          open={false}
+          >
+          <CheckoutForm />
+        </Dialog>
       </div>
     )
   }

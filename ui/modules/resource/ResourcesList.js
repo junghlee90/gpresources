@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getResources } from './ResourceActions'
+import Status from '../global/Status'
 import {
   Table,
   TableBody,
@@ -60,10 +61,13 @@ class ResourcesList extends Component {
 
   render () {
     return (
-      <Table>
-        {this.renderHeaders()}
-        {this.renderRows()}
-      </Table>
+      <div>
+        <Status msg={'test'} />
+        <Table>
+          {this.renderHeaders()}
+          {this.renderRows()}
+        </Table>
+      </div>
     )
   }
 }

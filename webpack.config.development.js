@@ -24,6 +24,11 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      jquery: 'jquery'
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
       '__DEV__': JSON.stringify(process.env.NODE_ENV)

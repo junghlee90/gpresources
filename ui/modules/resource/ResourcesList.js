@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getResources } from './ResourceActions'
-import Status from '../global/Status'
+import RaisedButton from 'material-ui/RaisedButton'
 import {
   Table,
   TableBody,
@@ -62,11 +62,13 @@ class ResourcesList extends Component {
   render () {
     return (
       <div>
-        <Status msg={'test'} />
         <Table>
           {this.renderHeaders()}
           {this.renderRows()}
         </Table>
+        <RaisedButton
+          label='Check out'
+          primary />
       </div>
     )
   }

@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import TextField from 'material-ui/TextField'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { getResources } from './ResourceActions'
+import {
+  getResources,
+  updateCheckoutItem
+ } from './ResourceActions'
 import CheckoutForm from '../checkout/CheckoutForm'
 import Dialog from 'material-ui/Dialog'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -26,7 +29,10 @@ class ResourcesList extends Component {
     ]
 
     return (
-      <TableHeader>
+      <TableHeader
+        displaySelectAll={false}
+        adjustForCheckbox={false}
+      >
         <TableRow>
           {
             headers.map((header) => {
@@ -42,10 +48,12 @@ class ResourcesList extends Component {
   }
 
   renderRows () {
-    const { items } = this.props
+    const { items, checkoutRequest, updateCheckoutItem } = this.props
 
     return (
-      <TableBody>
+      <TableBody
+        displayRowCheckbox={false}
+        >
         {
           items.map((item) => {
             return item.resource_states.map((state) => {
@@ -55,7 +63,13 @@ class ResourcesList extends Component {
                   <TableRowColumn>{state.count}</TableRowColumn>
                   <TableRowColumn>
                     <TextField
-                       />
+                      id={item.id.toString()}
+                      onChange={(e) => updateCheckoutItem({
+                        id: item.id,
+                        count: e.target.value
+                      })}
+                      value={checkoutRequest[item.id] === undefined ? '' : checkoutRequest[item.id]}
+                      />
                   </TableRowColumn>
                 </TableRow>
               )
@@ -73,7 +87,7 @@ class ResourcesList extends Component {
           errorText='This field is required'
           hintText='Name of person checking out the resources (i.e. John Lin)' />
         <Table
-          multiSelectable
+          selectable={false}
           >
           {this.renderHeaders()}
           {this.renderRows()}
@@ -93,15 +107,16 @@ class ResourcesList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { items } = state.resources
+  const { items, checkoutRequest } = state.resources
   return {
-    items
+    items, checkoutRequest
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getResources: bindActionCreators(getResources, dispatch)
+    getResources: bindActionCreators(getResources, dispatch),
+    updateCheckoutItem: bindActionCreators(updateCheckoutItem, dispatch)
   }
 }
 

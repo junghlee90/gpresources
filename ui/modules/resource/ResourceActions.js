@@ -11,8 +11,24 @@ import {
   ADD_RESOURCE_REQUEST,
   ADD_RESOURCE_SUCCESS,
   ADD_RESOURCE_FAILURE,
-  ADD_RESOURCE_NEW
+  ADD_RESOURCE_NEW,
+  UPDATE_CHECKOUT_ITEM,
+  DELETE_CHECKOUT_ITEM
 } from './ResourceActionTypes'
+
+export const updateCheckoutItem = (item) => {
+  return {
+    type: UPDATE_CHECKOUT_ITEM,
+    item
+  }
+}
+
+export const deleteCheckoutItem = (id) => {
+  return {
+    type: DELETE_CHECKOUT_ITEM,
+    id
+  }
+}
 
 export const addResourceNew = () => {
   return {

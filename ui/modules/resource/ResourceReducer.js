@@ -5,7 +5,7 @@ import {
   RESOURCE_NAME_CHANGED,
   RESOURCE_COUNT_CHANGED,
   UPDATE_CHECKOUT_ITEM,
-  DELETE_CHECKOUT_ITEM
+  TOGGLE_RESOURCE
 } from './ResourceActionTypes'
 
 const items = (state = [], action) => {
@@ -20,10 +20,16 @@ const items = (state = [], action) => {
 const checkoutRequest = (state = {}, action) => {
   switch (action.type) {
     case UPDATE_CHECKOUT_ITEM:
-      return Object.assign({}, state, {[action.id]: action.count})
-    case DELETE_CHECKOUT_ITEM:
-      let { [action.id]: deletedItem, ...rest } = state
-      return rest
+      let item = action.item
+      return Object.assign({}, state, {[item.id]: item.count})
+    case TOGGLE_RESOURCE:
+      if (action.id in state) {
+        let { [action.id]: deletedItem, ...rest } = state
+        return rest
+      } else {
+        // todo should keep the original value instead of reassign to 1
+        return Object.assign({}, state, {[action.id]: 1})
+      }
     default:
       return state
   }

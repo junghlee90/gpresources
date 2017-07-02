@@ -5,6 +5,16 @@ import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
 
 class CheckoutForm extends Component {
+  renderCheckoutItems () {
+    const { checkoutRequest } = this.props
+    return (
+      <div>
+        // show checkout items here
+        helloworld
+      </div>
+    )
+  }
+
   render () {
     return (
       <div>
@@ -16,6 +26,11 @@ class CheckoutForm extends Component {
         <p className='h3'> What are you checking out? </p>
         <br />
         <br />
+        {
+          this.renderCheckoutItems()
+        }
+        <br />
+        <br />
         <RaisedButton
           label='Check out'
           primary />
@@ -25,9 +40,9 @@ class CheckoutForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { items } = state.resources
+  const { items, checkoutRequest } = state.resources
   return {
-    items
+    items, checkoutRequest
   }
 }
 

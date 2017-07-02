@@ -13,8 +13,15 @@ import {
   ADD_RESOURCE_FAILURE,
   ADD_RESOURCE_NEW,
   UPDATE_CHECKOUT_ITEM,
-  DELETE_CHECKOUT_ITEM
+  DELETE_CHECKOUT_ITEM,
+  TOGGLE_CHECKOUT_FORM
 } from './ResourceActionTypes'
+
+export const toggleCheckoutForm = () => {
+  return {
+    type: TOGGLE_CHECKOUT_FORM
+  }
+}
 
 export const updateCheckoutItem = (item) => {
   return {

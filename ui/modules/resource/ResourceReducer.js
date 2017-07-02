@@ -5,7 +5,8 @@ import {
   RESOURCE_NAME_CHANGED,
   RESOURCE_COUNT_CHANGED,
   UPDATE_CHECKOUT_ITEM,
-  TOGGLE_RESOURCE
+  TOGGLE_RESOURCE,
+  TOGGLE_CHECKOUT_FORM
 } from './ResourceActionTypes'
 
 const items = (state = [], action) => {
@@ -57,11 +58,21 @@ const currentResourceCount = (state = '', action) => {
   }
 }
 
+const checkoutFormOpen = (state = false, action) => {
+  switch (action.type) {
+    case TOGGLE_CHECKOUT_FORM:
+      return !state
+    default:
+      return state
+  }
+}
+
 const resourceReducer = combineReducers({
   items,
   checkoutRequest,
   currentResourceName,
-  currentResourceCount
+  currentResourceCount,
+  checkoutFormOpen
 })
 
 export default resourceReducer

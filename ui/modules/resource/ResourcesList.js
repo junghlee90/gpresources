@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {
   getResources,
-  updateCheckoutItem
+  updateCheckoutItem,
+  toggleCheckoutForm
  } from './ResourceActions'
 import CheckoutForm from '../checkout/CheckoutForm'
 import Dialog from 'material-ui/Dialog'
@@ -81,6 +82,8 @@ class ResourcesList extends Component {
   }
 
   render () {
+    const { checkoutFormOpen, toggleCheckoutForm } = this.props
+
     return (
       <div>
         <TextField
@@ -94,10 +97,12 @@ class ResourcesList extends Component {
         </Table>
         <RaisedButton
           label='Check out'
+          onTouchTap={(e) => toggleCheckoutForm()}
           primary />
         <Dialog
           modal={false}
-          open={false}
+          onRequestClose={(e) => toggleCheckoutForm()}
+          open={checkoutFormOpen}
           >
           <CheckoutForm />
         </Dialog>
@@ -107,16 +112,17 @@ class ResourcesList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { items, checkoutRequest } = state.resources
+  const { items, checkoutRequest, checkoutFormOpen } = state.resources
   return {
-    items, checkoutRequest
+    items, checkoutRequest, checkoutFormOpen
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getResources: bindActionCreators(getResources, dispatch),
-    updateCheckoutItem: bindActionCreators(updateCheckoutItem, dispatch)
+    updateCheckoutItem: bindActionCreators(updateCheckoutItem, dispatch),
+    toggleCheckoutForm: bindActionCreators(toggleCheckoutForm, dispatch)
   }
 }
 
